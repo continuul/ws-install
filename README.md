@@ -5,11 +5,8 @@
 - [ws-get &mdash; introduction](#ws-get-mdash-introduction)
 - [Examples](#examples)
 - [Installing ws](#installing-ws)
-  - [Manual installation](#manual-installation)
 - [Updating ws](#updating-ws)
-  - [Manual updating](#manual-updating)
 - [Uninstalling ws](#uninstalling-ws)
-  - [Manual uninstallation](#manual-uninstallation)
 - [License](#license)
 
 # ws-get &mdash; introduction

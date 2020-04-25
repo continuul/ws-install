@@ -2,7 +2,7 @@
 
 **Contents**
 
-- [ws-get &mdash; introduction](#ws-get-mdash-introduction)
+- [ws-get &mdash; introduction](#ws-get--introduction)
 - [Examples](#examples)
 - [Installing ws](#installing-ws)
 - [Updating ws](#updating-ws)

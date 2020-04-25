@@ -13,7 +13,7 @@ lint:
 #:help: changever   | Change the product version to the next consecutive version number.
 .PHONY: changever
 changever:
-	find bin -type f -name ws -exec sed -i "" "s/VERSION=.*/VERSION=\"$(VERSION)\"/g" {} \;
+	find bin -type f -name ws-get -exec sed -i "" "s/VERSION=.*/VERSION=\"$(VERSION)\"/g" {} \;
 	git add bin/ws-get && git commit -m "Updated VERSION"
 
 #:help: changelog   | Build the changelog

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-VERSION=1.x
+VERSION="v0.2.0"
 
 echo "hello world"

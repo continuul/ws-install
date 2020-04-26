@@ -13,7 +13,7 @@ wsRepoUrl='https://github.com/continuul/ws'
 WS_PREFIX=${wsDir}
 
 # Parse options.
-noColor=0 skipPrompts=0 testPrerequisitesOnly=0 skipInitFileUpdate=0 quiet=0
+noColor=0 skipPrompts=0 testPrerequisitesOnly=0 skipInitFileUpdate=0 quiet=1
 
 function EchoColored () {
   local pre="\033[${1}m" post='\033[0m'
@@ -218,7 +218,7 @@ function Parse-Options () {
       shift $((OPTIND - 1))
       Update
       ;;
-    r | remove)
+    r | remove | uninstall)
       while getopts ':ytnq' opt; do
         [[ $opt == '?' ]] && DieSyntax "Unknown option: -$OPTARG"
         [[ $opt == ':' ]] && DieSyntax "Option -$OPTARG is missing its argument."
@@ -241,5 +241,3 @@ function Parse-Options () {
 }
 
 Parse-Options "$@"
-
-#(( quiet )) || Echo-Options

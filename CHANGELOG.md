@@ -11,6 +11,7 @@ All notable changes to this project will be documented in this file.
 ## [v0.3.0] - 2020-04-26
 
 - Update changelog template.
+- Update changelog template.
 - Change command names to update and remove. Update doc.
 - Update CHANGELOG:
 - Update CHANGELOG
@@ -25,14 +26,12 @@ All notable changes to this project will be documented in this file.
 - Add ws-get install doc.
 - Add ws-get install doc.
 - Add initial README content.
-- Updated VERSION
 - Update Makefile path to script in changever target.
 
 
 <a name="v0.1.0"></a>
 ## v0.1.0 - 2020-04-25
 
-- Updated VERSION
 - Fix copy and paste typo in Makefile.
 - Update CHANGELOG.
 - Seed initial files so git.io can be wired in.

@@ -113,7 +113,7 @@ EOF
 EOF
 } >&2
 
-function Upgrade () {
+function Update () {
   for makeExe in make gmake; do
     "$makeExe" --version 2>/dev/null | grep -Fq "GNU Make" && break
     [[ $makeExe == 'make' ]] && continue # if 'make' isn't GNU Make, try again with 'gmake'.
@@ -199,7 +199,7 @@ function Parse-Options () {
       shift $((OPTIND - 1))
       Install
       ;;
-    u | upgrade)
+    u | update)
       while getopts ':ytnq' opt; do
         [[ $opt == '?' ]] && DieSyntax "Unknown option: -$OPTARG"
         [[ $opt == ':' ]] && DieSyntax "Option -$OPTARG is missing its argument."
@@ -216,7 +216,7 @@ function Parse-Options () {
         esac
       done
       shift $((OPTIND - 1))
-      Upgrade
+      Update
       ;;
     r | remove)
       while getopts ':ytnq' opt; do

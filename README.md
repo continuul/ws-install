@@ -33,14 +33,14 @@ curl -L https://git.io/ws-get | bash
 * Automated installation to default location `$HOME/ws` with no confirmation prompt:
 
 ```shell
-curl -L https://git.io/ws-get | bash -s -- -y
+curl -L https://git.io/ws-get | bash -s -- install -y
 ```
 
 * Automated, _quiet_ installation to default location `$HOME/ws`; _no status information_
 is displayed:
 
 ```shell
-curl -sL https://git.io/ws-get | bash -s -- -q
+curl -sL https://git.io/ws-get | bash -s -- install -q
 ```
 
 ## Installing ws
@@ -134,13 +134,21 @@ EXAMPLES
 
 Run `ws-get update` on demand to update `ws` itself to the latest version.
 
+```bash
+curl -sL https://git.io/ws-get | bash -s -- update -q
+```
+
 `ws-get update -y` skips the confirmation prompt.
 
 ## Uninstalling ws
 
-Run `ws-get uninstall` to uninstall `ws` without deleting any workspaces.
+Run `ws-get remove` to uninstall `ws` without deleting any workspaces.
 
-`ws-get uninstall -y` skips the confirmation prompt - **use with caution**.
+```bash
+curl -sL https://git.io/ws-get | bash -s -- remove -q
+```
+
+`ws-get remove -y` skips the confirmation prompt - **use with caution**.
 
 ## License
 

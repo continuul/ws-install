@@ -11,6 +11,7 @@ All notable changes to this project will be documented in this file.
 {{ range .Commits -}}
 {{/* SKIPPING RULES - START */ -}}
 {{- if not (hasPrefix .Subject "Updated CHANGELOG") -}}
+{{- if not (hasPrefix .Subject "Updated VERSION") -}}
 {{- if not (contains .Subject "[ci skip]") -}}
 {{- if not (contains .Subject "[skip ci]") -}}
 {{- if not (hasPrefix .Subject "Merge pull request ") -}}
@@ -18,6 +19,7 @@ All notable changes to this project will be documented in this file.
 {{- /* SKIPPING RULES - END */ -}}
 - {{ if .Scope }}**{{ .Scope }}:** {{ end }}{{ .Subject }}
 {{/* SKIPPING RULES - START */ -}}
+{{ end -}}
 {{ end -}}
 {{ end -}}
 {{ end -}}
@@ -30,6 +32,7 @@ All notable changes to this project will be documented in this file.
 {{ range .Unreleased.Commits -}}
 {{/* SKIPPING RULES - START */ -}}
 {{- if not (hasPrefix .Subject "Updated CHANGELOG") -}}
+{{- if not (hasPrefix .Subject "Updated VERSION") -}}
 {{- if not (contains .Subject "[ci skip]") -}}
 {{- if not (contains .Subject "[skip ci]") -}}
 {{- if not (hasPrefix .Subject "Merge pull request ") -}}
@@ -37,6 +40,7 @@ All notable changes to this project will be documented in this file.
 {{- /* SKIPPING RULES - END */ -}}
 - {{ if .Scope }}**{{ .Scope }}:** {{ end }}{{ .Subject }}
 {{/* SKIPPING RULES - START */ -}}
+{{ end -}}
 {{ end -}}
 {{ end -}}
 {{ end -}}
@@ -56,6 +60,7 @@ All notable changes to this project will be documented in this file.
 {{ range .Commits -}}
 {{/* SKIPPING RULES - START */ -}}
 {{- if not (hasPrefix .Subject "Updated CHANGELOG") -}}
+{{- if not (hasPrefix .Subject "Updated VERSION") -}}
 {{- if not (contains .Subject "[ci skip]") -}}
 {{- if not (contains .Subject "[skip ci]") -}}
 {{- if not (hasPrefix .Subject "Merge pull request ") -}}
@@ -63,6 +68,7 @@ All notable changes to this project will be documented in this file.
 {{- /* SKIPPING RULES - END */ -}}
 - {{ if .Scope }}**{{ .Scope }}:** {{ end }}{{ .Subject }}
 {{/* SKIPPING RULES - START */ -}}
+{{ end -}}
 {{ end -}}
 {{ end -}}
 {{ end -}}
@@ -75,6 +81,7 @@ All notable changes to this project will be documented in this file.
 {{ range .Commits -}}
 {{/* SKIPPING RULES - START */ -}}
 {{- if not (hasPrefix .Subject "Updated CHANGELOG") -}}
+{{- if not (hasPrefix .Subject "Updated VERSION") -}}
 {{- if not (contains .Subject "[ci skip]") -}}
 {{- if not (contains .Subject "[skip ci]") -}}
 {{- if not (hasPrefix .Subject "Merge pull request ") -}}
@@ -82,6 +89,7 @@ All notable changes to this project will be documented in this file.
 {{- /* SKIPPING RULES - END */ -}}
 - {{ if .Scope }}**{{ .Scope }}:** {{ end }}{{ .Subject }}
 {{/* SKIPPING RULES - START */ -}}
+{{ end -}}
 {{ end -}}
 {{ end -}}
 {{ end -}}

@@ -7,6 +7,11 @@ All notable changes to this project will be documented in this file.
 
 
 
+<a name="v0.4.0"></a>
+## [v0.4.0] - 0001-01-01
+
+
+
 <a name="v0.3.0"></a>
 ## [v0.3.0] - 2020-04-26
 
@@ -40,6 +45,7 @@ All notable changes to this project will be documented in this file.
 - Initial commit
 
 
-[Unreleased]: https://github.com/continuul/ws-get/compare/v0.3.0...HEAD
+[Unreleased]: https://github.com/continuul/ws-get/compare/v0.4.0...HEAD
+[v0.4.0]: https://github.com/continuul/ws-get/compare/v0.3.0...v0.4.0
 [v0.3.0]: https://github.com/continuul/ws-get/compare/v0.2.0...v0.3.0
 [v0.2.0]: https://github.com/continuul/ws-get/compare/v0.1.0...v0.2.0

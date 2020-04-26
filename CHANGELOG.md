@@ -8,8 +8,13 @@ All notable changes to this project will be documented in this file.
 
 
 <a name="v0.4.0"></a>
-## [v0.4.0] - 0001-01-01
+## [v0.4.0] - 2020-04-26
 
+- Diagnose installer issue.
+- Update make for better testing.
+- Update changelog template.
+- Update changelog template.
+- Change command names to update and remove. Update doc.
 
 
 <a name="v0.3.0"></a>

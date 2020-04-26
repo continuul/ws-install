@@ -30,11 +30,15 @@ release:
 
 #:help: install     | Installs the product, leaving the workspaces behind.
 .PHONY: install
-install: bin/ws
-	mkdir -p $(WS_PREFIX)/$(dir $<)
-	cp $< $(WS_PREFIX)/$<
+install: bin/ws-get
+	bin/ws-get install
+
+#:help: update      | Updates the product, leaving the workspaces behind.
+.PHONY: update
+update: bin/ws-get
+	bin/ws-get update
 
 #:help: uninstall   | Uninstalls the product, leaving the workspaces behind.
 .PHONY: uninstall
 uninstall:
-	rm -f $(WS_PREFIX)/bin/ws
+	bin/ws-get remove

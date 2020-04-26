@@ -13,7 +13,7 @@ wsRepoUrl='https://github.com/continuul/ws'
 WS_PREFIX=${wsDir}
 
 # Parse options.
-noColor=0 skipPrompts=0 testPrerequisitesOnly=0 skipInitFileUpdate=0 quiet=1
+noColor=0 skipPrompts=0 testPrerequisitesOnly=0 skipInitFileUpdate=0 quiet=0
 
 function EchoColored () {
   local pre="\033[${1}m" post='\033[0m'
@@ -81,18 +81,18 @@ to follow).
 For more information, see $wsRepoUrl
 ===
 EOF
-  # Determine where to read user input from:
-  #   If -f ${BASH_SOURCE} is true, we're running from a local script file, such as during testing, so we respect whatever stdin is set to, so that user input can be *simulated*.
-  #   Otherwise, the assumption is that we're running via curl ... | bash, in which case we always want to read from /dev/tty - giving us a chance to
-  #   to pipe the script contents via stdin, while soliciting user input from the terminal (unless -y was specified to skipt he confirmation prompt).
-  [[ -f ${BASH_SOURCE} ]] && src='/dev/stdin' || src='/dev/tty'
-  # Prompt the user:
-  while :; do
-    read -ep "CONTINUE (y/N)? " promptInput < "$src" || exit # `read` fails only if stdin does NOT come from a terminal
-    [[ $promptInput =~ ^[nN]$ || -z $promptInput ]] && { echo "Aborted." >&2; exit 3; }
-    [[ $promptInput != [yY] ]] && { echo "Invalid input; please try again." 1>&2; continue; }
-    break
-  done
+    # Determine where to read user input from:
+    #   If -f ${BASH_SOURCE} is true, we're running from a local script file, such as during testing, so we respect whatever stdin is set to, so that user input can be *simulated*.
+    #   Otherwise, the assumption is that we're running via curl ... | bash, in which case we always want to read from /dev/tty - giving us a chance to
+    #   to pipe the script contents via stdin, while soliciting user input from the terminal (unless -y was specified to skipt he confirmation prompt).
+    [[ -f ${BASH_SOURCE} ]] && src='/dev/stdin' || src='/dev/tty'
+    # Prompt the user:
+    while :; do
+      read -ep "CONTINUE (y/N)? " promptInput < "$src" || exit # `read` fails only if stdin does NOT come from a terminal
+      [[ $promptInput =~ ^[nN]$ || -z $promptInput ]] && { echo "Aborted." >&2; exit 3; }
+      [[ $promptInput != [yY] ]] && { echo "Invalid input; please try again." 1>&2; continue; }
+      break
+    done
   fi
   mkdir -p "${wsDir}" || Die "Failed to create directory '${wsDir}'."
   preReqMsg=
@@ -139,7 +139,7 @@ function Update () {
 
 function Remove () {
   if (( ! skipPrompts )); then
-  cat <<EOF
+    cat <<EOF
 ====
 You are ABOUT TO UNINSTALL ws, the workspace manager,
 which includes REMOVAL of the following directory:
@@ -147,11 +147,17 @@ which includes REMOVAL of the following directory:
 For more information, see ${wsRepoUrl}
 ====
 EOF
+    # Determine where to read user input from:
+    #   If -f ${BASH_SOURCE} is true, we're running from a local script file, such as during testing, so we respect whatever stdin is set to, so that user input can be *simulated*.
+    #   Otherwise, the assumption is that we're running via curl ... | bash, in which case we always want to read from /dev/tty - giving us a chance to
+    #   to pipe the script contents via stdin, while soliciting user input from the terminal (unless -y was specified to skipt he confirmation prompt).
+    [[ -f ${BASH_SOURCE} ]] && src='/dev/stdin' || src='/dev/tty'
+    # Prompt the user:
     while :; do
-      read -ep "CONTINUE (y/N)? " response
-      [[ $response =~ ^[yY]$ ]] && break # confirmed
-      [[ $response =~ ^[nN]$ || -z $response ]] && { echo "Aborted." 1>&2; exit 3; }
-      echo "Invalid input; please try again (^C to abort)." 1>&2
+      read -ep "CONTINUE (y/N)? " promptInput < "$src" || exit # `read` fails only if stdin does NOT come from a terminal
+      [[ $promptInput =~ ^[nN]$ || -z $promptInput ]] && { echo "Aborted." >&2; exit 3; }
+      [[ $promptInput != [yY] ]] && { echo "Invalid input; please try again." 1>&2; continue; }
+      break
     done
   fi
   rm -f "${wsExe}"

@@ -15,6 +15,14 @@ All notable changes to this project will be documented in this file.
 - Update changelog template.
 - Update changelog template.
 - Change command names to update and remove. Update doc.
+- Update CHANGELOG.
+- Built ws-get script and it supports install, upgrade, and remove.
+- Add ws-get install doc.
+- Add ws-get install doc.
+- Add ws-get install doc.
+- Add initial README content.
+- Update Makefile path to script in changever target.
+- Fix copy and paste typo in Makefile.
 
 
 <a name="v0.3.0"></a>

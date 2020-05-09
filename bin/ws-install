@@ -2,7 +2,7 @@
 
 VERSION="v0.2.0"
 
-thisName="ws-get"
+thisName="ws-install"
 
 wsDir=${WS_PREFIX:-$HOME/ws}
 wsBinDir=${wsDir}/bin
